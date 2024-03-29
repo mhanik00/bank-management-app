@@ -52,8 +52,10 @@ function withdrawAdd() {
     
    
     if (currentBalance.innerText > 0 || withdrawNum < currentBalance.innerText) {
-        currentBalance.innerText = Number(currentBalance.innerText) - Number(withdrawNum);
        
+        currentBalance.innerText = Number(currentBalance.innerText) - Number(withdrawNum);
+    
+      
     } else {
         currentBalance.innerText = 0;
         currentWithdraw.innerText=0;
@@ -61,7 +63,11 @@ function withdrawAdd() {
 
         alert('Insufficient Balance');
     }
-    
+    if(currentBalance.innerText < withdrawNum){
+        alert('Insufficient Balance');
+      currentBalance.innerText =Number(currentBalance.innerText) + Number(withdrawNum);
+      currentWithdraw.innerText=0;
+    }
     
     withdrawAm.value = '';
 }
